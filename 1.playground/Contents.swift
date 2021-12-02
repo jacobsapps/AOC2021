@@ -4,7 +4,7 @@ import Foundation
 
 extension RandomAccessCollection where Element: SignedInteger {
     
-    /// Returns the number of times in the ocllection where the delta between elements is positive
+    /// Returns the number of times in the collection where the delta between elements is positive
     /// i.e. the number of times when element (n) is greater than element (n+1)
     /// The first index is dropped because the first element [0] is defined as not greater than a non-existent element [-1]
     var countIncreasingIncrements: Int {
