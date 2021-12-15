@@ -90,7 +90,7 @@ extension String {
     }
 }
 
-/// Convert a sequence of Directions into a final Coordinate value
+/// Convert a sequence of Directions into a final Coordinates value
 ///
 extension Sequence where Element == Direction {
     
