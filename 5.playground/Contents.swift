@@ -53,27 +53,8 @@ struct Vent: CustomStringConvertible {
             
         } else {
             let diff = abs(end.x - start.x)
-            if start.x < end.x,
-               start.y < end.y {
-                return (0...diff).map { Coordinate(x: start.x + $0, y: start.y + $0) }
-            }
-            
-            if start.x < end.x,
-               start.y > end.y {
-                return (0...diff).map { Coordinate(x: start.x + $0, y: start.y - $0) }
-            }
-                
-            if start.x > end.x,
-               start.y < end.y {
-                return (0...diff).map { Coordinate(x: start.x - $0, y: start.y + $0) }
-            }
-            
-            if start.x > end.x,
-               start.y > end.y {
-                return (0...diff).map { Coordinate(x: start.x - $0, y: start.y - $0) }
-            }
-            
-            fatalError("This should never be reached")
+            return (0...diff).map { Coordinate(x: start.x + (start.x < end.x ? $0 : -$0),
+                                               y: start.y + (start.y < end.y ? $0 : -$0)) }
         }
     }
     
